@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GraphController">
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <AnchorPane prefHeight="578.0" prefWidth="671.0" GridPane.columnIndex="1">
+            <children>
+                <Pane layoutX="-213.0" layoutY="-200.0" prefHeight="494.0" prefWidth="37.0">
+
+                </Pane>
+                <Label layoutX="129.0" layoutY="-97.0" prefHeight="256.0" prefWidth="411.0" text="Заданный граф" textFill="#6a2bf2" AnchorPane.bottomAnchor="419.0" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="-97.0">
+                    <font>
+                        <Font name="Segoe Script" size="47.0" />
+                    </font>
+                </Label>
+                <Button layoutX="42.0" layoutY="513.0" mnemonicParsing="false" onAction="#graphButton" prefHeight="47.0" prefWidth="591.0" text="Нарисовать" textFill="#2c00da" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="513.0">
+                    <font>
+                        <Font size="18.0" />
+                    </font></Button>
+                <Pane fx:id="pane1" layoutX="208.0" layoutY="211.0" prefHeight="255.0" prefWidth="256.0" scaleX="2.2" scaleY="1.6" snapToPixel="false" AnchorPane.bottomAnchor="112.0" AnchorPane.leftAnchor="208.0" AnchorPane.rightAnchor="207.0" AnchorPane.topAnchor="211.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</GridPane>

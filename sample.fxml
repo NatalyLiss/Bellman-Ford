@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="965.0" GridPane.columnIndex="1" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+            <children>
+                <SplitPane layoutX="-205.0" layoutY="-59.0" prefHeight="737.0" prefWidth="383.0" style="-fx-border-color: whitesmoke;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-205.0" AnchorPane.rightAnchor="787.0" AnchorPane.topAnchor="-59.0">
+
+                </SplitPane>
+                <Button fx:id="fileGraph" layoutX="588.0" layoutY="145.0" mnemonicParsing="false" onAction="#fileGeneration" prefHeight="52.0" prefWidth="304.0" text="Считать граф из файла" textFill="#2d03a1">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Label fx:id="text6" layoutX="585.0" layoutY="470.0" prefHeight="69.0" prefWidth="308.0" text="Введите вершину графа:" textFill="#653794">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Button fx:id="generateGraph" layoutX="586.0" layoutY="413.0" mnemonicParsing="false" onAction="#generateGraph" prefHeight="47.0" prefWidth="307.0" text="Сгенерировать граф" textFill="#2d03a1">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <TextField fx:id="textField1" layoutX="585.0" layoutY="520.0" prefHeight="47.0" prefWidth="310.0">
+                    <cursor>
+                        <Cursor fx:constant="TEXT" />
+                    </cursor>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <Button fx:id="begAlg" layoutX="584.0" layoutY="572.0" mnemonicParsing="false" onAction="#workBegin" prefHeight="40.0" prefWidth="312.0" text="Начать работу алгоритма" textFill="#2d03a1">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Label fx:id="labelFB" layoutX="14.0" layoutY="15.0" prefHeight="105.0" prefWidth="515.0" text=" Алгоритм Форда-Беллмана" textFill="#5731e4">
+                    <font>
+                        <Font name="Segoe Script" size="30.0" />
+                    </font>
+                </Label>
+                <Label fx:id="menu" layoutX="663.0" layoutY="27.0" prefHeight="72.0" prefWidth="230.0" text="Меню" textFill="#5832e3">
+                    <font>
+                        <Font name="Segoe Script" size="40.0" />
+                    </font>
+                </Label>
+                <Label fx:id="text3" layoutX="587.0" layoutY="221.0" prefHeight="35.0" prefWidth="305.0" text="Введите количество вершин (до 30):" textFill="#653794">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="amountVertex" layoutX="587.0" layoutY="257.0" prefHeight="40.0" prefWidth="304.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font></TextArea>
+                <Label fx:id="text4" layoutX="585.0" layoutY="297.0" prefHeight="35.0" prefWidth="311.0" text="Введите количество ребер из одной" textFill="#653794">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="text5" layoutX="585.0" layoutY="324.0" prefHeight="30.0" prefWidth="312.0" text="вершины (до 10):" textFill="#653794">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="amountEdges" layoutX="586.0" layoutY="359.0" prefHeight="46.0" prefWidth="308.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font></TextArea>
+                <TextArea fx:id="result" layoutX="21.0" layoutY="416.0" prefHeight="150.0" prefWidth="498.0" />
+                <Label fx:id="text2" layoutX="19.0" layoutY="358.0" prefHeight="71.0" prefWidth="249.0" text="Результат работы алгоритма:" textFill="#653794">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="text1" layoutX="21.0" layoutY="93.0" prefHeight="112.0" prefWidth="130.0" text="Заданный граф:" textFill="#653794">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="textGraph" layoutX="21.0" layoutY="173.0" prefHeight="190.0" prefWidth="501.0" AnchorPane.bottomAnchor="315.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="443.0" AnchorPane.topAnchor="173.0" />
+                <Button fx:id="next" layoutX="23.0" layoutY="571.0" mnemonicParsing="false" onAction="#nextMenu" prefHeight="39.0" prefWidth="495.0" text="Визуализация работы алгоритма" textFill="#2d03a1">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+                <Button fx:id="back" layoutX="20.0" layoutY="571.0" mnemonicParsing="false" onAction="#backMenu" prefHeight="39.0" prefWidth="498.0" text="Назад" textFill="#2d03a1" visible="false">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+                <Label fx:id="vertex" layoutX="584.0" layoutY="480.0" prefHeight="143.0" prefWidth="319.0" text="Введите вершину графа:" textFill="#8674ee" visible="false">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="graphV" layoutX="587.0" layoutY="572.0" prefHeight="46.0" prefWidth="123.0" visible="false" />
+                <Button fx:id="graphWay" layoutX="720.0" layoutY="574.0" mnemonicParsing="false" onAction="#getWay" prefHeight="30.0" prefWidth="176.0" text="Путь" textFill="#2d03a1" visible="false">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+                <TextArea fx:id="graphAlg" layoutX="584.0" layoutY="139.0" prefHeight="382.0" prefWidth="308.0" visible="false" />
+            </children>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </AnchorPane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints />
+    </rowConstraints>
+</GridPane>
