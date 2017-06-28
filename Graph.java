@@ -95,7 +95,26 @@ public class Graph implements Graph_Interface {
      * Функция генерирования рандомного графа.
      */
     public void input_generation() {
-
+negativeCircle = 0;
+        list.clear();
+        vicual.clear();
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                Element_graph_way Q = new Element_graph_way();
+                Q.from = i;
+                int q;// путь куда
+                do {
+                    q = random.nextInt(n) + 1;
+                    --q;
+                } while (q == i);
+                Q.to = q;
+                int a = random.nextInt(100); //вес
+                Q.l = a;
+                list.add(Q);
+            }
+        }
+        m = n * m;
+        X_Y();
     }
 
     /**
