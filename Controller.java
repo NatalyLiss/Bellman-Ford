@@ -138,7 +138,27 @@ public class Controller {
      */
     @FXML
     public void nextMenu() {
-
+        if (k == 0)
+            error("Алгоритм не начал свою работу");
+        else {
+            next.setVisible(false);
+            text3.setVisible(false);
+            text4.setVisible(false);
+            text5.setVisible(false);
+            text6.setVisible(false);
+            amountEdges.setVisible(false);
+            amountVertex.setVisible(false);
+            textField1.setVisible(false);
+            begAlg.setVisible(false);
+            generateGraph.setVisible(false);
+            fileGraph.setVisible(false);
+            back.setVisible(true);
+            graphWay.setVisible(true);
+            vertex.setVisible(true);
+            graphAlg.setVisible(true);
+            graphV.setVisible(true);
+            Setting = false;
+        }
     }
 
     /**
@@ -146,7 +166,23 @@ public class Controller {
      */
     @FXML
     public void backMenu() {
-
+        next.setVisible(true);
+        text3.setVisible(true);
+        text4.setVisible(true);
+        text5.setVisible(true);
+        text6.setVisible(true);
+        amountEdges.setVisible(true);
+        amountVertex.setVisible(true);
+        textField1.setVisible(true);
+        begAlg.setVisible(true);
+        generateGraph.setVisible(true);
+        fileGraph.setVisible(true);
+        back.setVisible(false);
+        graphWay.setVisible(false);
+        vertex.setVisible(false);
+        graphAlg.setVisible(false);
+        graphV.setVisible(false);
+        Setting = true;
     }
 
     /**
