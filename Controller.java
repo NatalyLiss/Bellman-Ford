@@ -48,6 +48,45 @@ public class Controller {
      */
     @FXML
     public void generateGraph() {
+        if (amountVertex.getText() == null || amountVertex.getText().length() == 0) {
+            error("Введите количество вершин");
+            int x = Integer.parseInt(amountVertex.getText());
+        } else {
+            if (amountEdges.getText() == null || amountEdges.getText().length() == 0) {
+                error("Введите количество ребер");
+                int y = Integer.parseInt(amountEdges.getText());
+            }
+            try {
+                int x = Integer.parseInt(amountVertex.getText());
+                int y = Integer.parseInt(amountEdges.getText());
+                if (x > 30 || x < 0 || y > 10 || y < 0) {
+                    error("Граф может быть не отображен.");
+                } else {
+                    P.list.clear();
+                    P.ways.clear();
+                    P.road.clear();
+                    k = 0;
+                    P.n = x;
+                    P.m = y;
+                    P.V=-1;
+                    textGraph.clear();
+                    P.input_generation();
+                    for (int i = 0; i < P.list.size(); i++) {
+                        textGraph.appendText("Путь из вершины " + (P.list.elementAt(i).from + 1) + " в вершину " + (P.list.elementAt(i).to + 1) + ": " + P.list.elementAt(i).l + "\n");
+                    }
+                    Stage stageWindow = new Stage();
+                    //try {
+                        //FXMLDocumentController(stageWindow);
+                        //graphWindow.arT(4);
+                    //} catch (IOException e) {
+                       // e.printStackTrace();
+                    //}
+                }
+            } catch (NumberFormatException ex) {
+                ex.printStackTrace();
+                error("Введено некорректное значение в одно из полей! Пожалуста, вводите только цифры.");
+            }
+        }
 
     }
 
@@ -57,6 +96,10 @@ public class Controller {
      * @param s строка, которая сообщает, какая ошибка допущена при заполнении полей.
      */
     public void error(String s) {
+        alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Некорректный ввод");
+        alert.setHeaderText(s);
+        alert.showAndWait();
     }
 
     /**
