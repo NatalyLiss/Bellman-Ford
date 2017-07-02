@@ -22,6 +22,7 @@
     <children>
         <AnchorPane prefHeight="578.0" prefWidth="671.0" GridPane.columnIndex="1">
             <children>
+
                 <Pane layoutX="-213.0" layoutY="-200.0" prefHeight="494.0" prefWidth="37.0">
 
                 </Pane>
@@ -30,11 +31,21 @@
                         <Font name="Segoe Script" size="47.0" />
                     </font>
                 </Label>
-                <Button layoutX="42.0" layoutY="513.0" mnemonicParsing="false" onAction="#graphButton" prefHeight="47.0" prefWidth="591.0" text="Нарисовать" textFill="#2c00da" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="513.0">
+                 <Button fx:id="buildBut" layoutX="24.0" layoutY="513.0" mnemonicParsing="false" onAction="#graphButton" prefHeight="47.0" prefWidth="190.0" text="Построить " textFill="#2c00da" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="457.0" AnchorPane.topAnchor="513.0">
                     <font>
                         <Font size="18.0" />
                     </font></Button>
-                <Pane fx:id="pane1" layoutX="208.0" layoutY="211.0" prefHeight="255.0" prefWidth="256.0" scaleX="2.2" scaleY="1.6" snapToPixel="false" AnchorPane.bottomAnchor="112.0" AnchorPane.leftAnchor="208.0" AnchorPane.rightAnchor="207.0" AnchorPane.topAnchor="211.0" />
+                <Pane fx:id="pane1" layoutX="208.0" layoutY="169.0" prefHeight="256.0" prefWidth="256.0" scaleX="2.2" scaleY="1.6" snapToPixel="false" AnchorPane.bottomAnchor="153.0" AnchorPane.leftAnchor="208.0" AnchorPane.rightAnchor="207.0" AnchorPane.topAnchor="169.0" />
+            <Button fx:id="nextButton" layoutX="467.0" layoutY="513.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="47.0" prefWidth="190.0" text="Следующий шаг" textFill="#2c00da" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="467.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="513.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="nextButton1" layoutX="249.0" layoutY="513.0" mnemonicParsing="false" onAction="#graphPaint" prefHeight="47.0" prefWidth="190.0" text="Нарисовать" textFill="#2c00da">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </children>
