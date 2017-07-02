@@ -13,23 +13,23 @@ package sample;
 /**
  * Класс для хранения графа и отображения действий над ним.
  */
-public class Graph implements Graph_Interface {
+public class Graph implements GraphInterface {
     /**
      * Класс для хранения ребер графа.
      */
-    public class Element_graph_way {
+    public class ElementGraphWay {//переименовать не через нижнее подчеркивание
         int from;
         int to;
-        int l;
+        int l;//weight
     }
 
     /**
      * Класс для хранения координат узлов графа.
      */
-    public class Ways_Point {
+    public class WaysPoint {
         int x;
         int y;
-        int Name;
+        int name;// с маленькой
     }
 
     final int inf = 1000000000;
@@ -38,10 +38,10 @@ public class Graph implements Graph_Interface {
     int vertexX = 120;
     int vertexY = 105;
     final Random random = new Random();
-    Vector<Element_graph_way> list = new Vector<Element_graph_way>();
+    Vector<ElementGraphWay> list = new Vector<ElementGraphWay>();
     Vector<Integer> ways = new Vector<Integer>();
     Vector<Integer> road = new Vector<Integer>();
-    Vector<Ways_Point> vicual = new Vector<Ways_Point>();
+    Vector<WaysPoint> vicual = new Vector<WaysPoint>();
     int n;//количество узлов
     int m = 0;//количество ветвей
     int v;// узел из которого нужно считать пути;
@@ -51,13 +51,13 @@ public class Graph implements Graph_Interface {
     /**
      * Функция считывания графа из файла.
      */
-    public void input_file() {
+    public void inputFile() {
         negativeCircle = 0;
         list.clear();
         vicual.clear();
         Scanner sc;
         try {
-            sc = new Scanner(new File("D://in.txt"));
+            sc = new Scanner(new File("D://in.txt"));// создаём объект класса Scanner
             try {
                 if (sc.hasNextInt()) { // возвращает истинну если с потока ввода можно считать целое число
                     n = sc.nextInt();// считывает целое число с потока ввода и сохраняем в переменную
@@ -65,9 +65,9 @@ public class Graph implements Graph_Interface {
                 if (sc.hasNextInt()) {
                     m = sc.nextInt();
                 } else System.out.println("В файле недостаточно данных");
-                X_Y();
+                XY();
                 for (int j = 0; j < m; j++) {
-                    Element_graph_way Q = new Element_graph_way();
+                    ElementGraphWay Q = new ElementGraphWay();
                     if (sc.hasNextInt()) {
                         Q.from = sc.nextInt();
                         Q.from--;
@@ -94,13 +94,13 @@ public class Graph implements Graph_Interface {
     /**
      * Функция генерирования рандомного графа.
      */
-    public void input_generation() {
-negativeCircle = 0;
+    public void inputGeneration() {
+        negativeCircle = 0;
         list.clear();
         vicual.clear();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                Element_graph_way Q = new Element_graph_way();
+                ElementGraphWay Q = new ElementGraphWay();
                 Q.from = i;
                 int q;// путь куда
                 do {
@@ -114,27 +114,28 @@ negativeCircle = 0;
             }
         }
         m = n * m;
-        X_Y();
+        XY();
     }
 
     /**
-     * Поиск кратчайших путей из заданной вершины в графе (Алгоритм Форда-Беллмана).
+     * Функция поиска кратчайших путей из заданной вершины в графе.
      *
      * @param P контроллер, в который будут выведены результаты.
      */
-    public void search_algorithm(Controller P) {
-        for (int i = 0; i < n; ++i) {
+    public void searchAlgorithm(Controller P) {
+        for (int i = 0; i < n; i++) {//int n;//количество узлов
             ways.add(inf);
             road.add(-1);
         }
-        v--;
+        v--;// узел из которого нужно считать пути;
         ways.set(v, 0);
         P.graphAlg.clear();
         P.graphAlg.appendText((v + 1) + " |");
         for (int k = 1; k <= n; k++) {
-            if (k > 9) {
-                P.graphAlg.appendText(" " + k + " |");
-            } else P.graphAlg.appendText(" " + k + " |");
+           P.graphAlg.appendText(" " + k + " |");
+            //if (k > 9) {
+                //P.graphAlg.appendText(" " + k + " |");
+            //} else P.graphAlg.appendText(" " + k + " |");
         }
         P.graphAlg.appendText("\n");
         P.graphAlg.appendText("  ");
@@ -148,9 +149,9 @@ negativeCircle = 0;
             }
         }
         P.graphAlg.appendText("\n");
-        for (int i = 1; i <= n; ++i) {
-            for (int j = 0; j < m; ++j) {
-                if ((ways.elementAt(list.elementAt(j).from) < inf) & ((ways.elementAt(list.elementAt(j).from) + list.elementAt(j).l) < ways.elementAt(list.elementAt(j).to)))
+        for (int i = 1; i <= n; ++i) {//number of vertexes
+            for (int j = 0; j < m; ++j) {//int m = 0;//количество ветвей
+                if ((ways.elementAt(list.elementAt(j).from) < inf) & ((ways.elementAt(list.elementAt(j).from) + list.elementAt(j).l) < ways.elementAt(list.elementAt(j).to))) {
                     if (i == n) {
                         negativeCircle = 1;
                         P.graphAlg.clear();
@@ -174,21 +175,24 @@ negativeCircle = 0;
                         P.graphAlg.appendText("\n");
 
                     }
+                }
             }
 
         }
     }
+
+
 
     /**
      * Функция вывода кратчайших путей из заданной вершины в графе.
      *
      * @param P контроллер, в который будут выведены результаты.
      */
-    public void output_ways(Controller P) {
+    public void outputWays(Controller P) {
         if (negativeCircle == 0) {
             P.result.clear();
             Vector<Integer> path = new Vector<Integer>();
-            for (int j = 0; j < n; j++)
+            for (int j = 0; j < n; j++) {
                 if (j != (v)) {
                     if (ways.elementAt(j) == 1000000000) {
                         P.result.appendText("Путь из вершины " + (v + 1) + " в вершину " + (j + 1) + ": NO\n");
@@ -205,19 +209,20 @@ negativeCircle = 0;
                         path.clear();
                     }
                 }
+            }
         }
     }
 
     /**
      * Функция присвоения координат узлам графа.
      */
-    public void X_Y() {
+    public void XY() {
         double fi = 360 / n;
         for (int i = 0; i < n; i++) {
-            Ways_Point q = new Ways_Point();
+            WaysPoint q = new WaysPoint();
             q.x = x + (int) (long) (vertexX * Math.cos(i * fi * Math.PI / 180));
             q.y = y + (int) (long) (vertexY * Math.sin(i * fi * Math.PI / 180));
-            q.Name = i + 1;
+            q.name = i + 1;
             vicual.add(q);
         }
     }
