@@ -7,9 +7,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import javafx.scene.layout.*;
 import java.io.IOException;
+import java.util.Vector;
 
 
 /**
@@ -20,14 +24,44 @@ public class Controller {
     private Alert alert;
     @FXML
     private TextField textField1;
-
+    @FXML
+    private TextArea amountVertex;
     @FXML
     private TextArea amountEdges;
     @FXML
     public TextArea result;
     @FXML
     private TextArea textGraph;
-
+    @FXML
+    private Label labelFB;
+    @FXML
+    private Label text1;
+    @FXML
+    private Label text2;
+    @FXML
+    private Label text3;
+    @FXML
+    private Label text4;
+    @FXML
+    private Label text5;
+    @FXML
+    private Label text6;
+    @FXML
+    private Label menu;
+    @FXML
+    private Button next;
+    @FXML
+    private Button fileGraph;
+    @FXML
+    private Button generateGraph;
+    @FXML
+    private Button begAlg;
+    @FXML
+    private Button back;
+    @FXML
+    private Button graphWay;
+    @FXML
+    private Label vertex;
     @FXML
     public TextArea graphAlg;
     @FXML
@@ -70,25 +104,25 @@ public class Controller {
                     P.m = y;
                     P.V=-1;
                     textGraph.clear();
-                    P.input_generation();
+                    P.inputGeneration();//Функция генерирования рандомного графа.
                     for (int i = 0; i < P.list.size(); i++) {
                         textGraph.appendText("Путь из вершины " + (P.list.elementAt(i).from + 1) + " в вершину " + (P.list.elementAt(i).to + 1) + ": " + P.list.elementAt(i).l + "\n");
                     }
                     Stage stageWindow = new Stage();
-                    //try {
-                        //FXMLDocumentController(stageWindow);
+                    /*try {
+                        FXMLDocumentController(stageWindow);
                         //graphWindow.arT(4);
-                    //} catch (IOException e) {
-                       // e.printStackTrace();
-                    //}
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }*/
                 }
             } catch (NumberFormatException ex) {
                 ex.printStackTrace();
                 error("Введено некорректное значение в одно из полей! Пожалуста, вводите только цифры.");
             }
         }
-
     }
+
 
     /**
      * Функция для вывода ошибок при заполнении полей.
@@ -107,8 +141,8 @@ public class Controller {
      */
     public void beginAlgorithm() {
         k = 1;
-        P.search_algorithm(this);
-        P.output_ways(this);
+        P.searchAlgorithm(this);
+        P.outputWays(this);
     }
 
     /**
@@ -121,18 +155,18 @@ public class Controller {
         } else {
             if (textField1.getText() == null || textField1.getText().length() == 0) {
                 error("Введите вершину");
-                int m = Integer.parseInt(amountEdges.getText());
-                P.v = m;
+                //int m = Integer.parseInt(amountEdges.getText());
+                //P.v = m;
             } else {
                 try {
                     int m = Integer.parseInt(textField1.getText());
                     P.v = m;
-                    if (m > P.n || m <= 0)
+                    if (P.v > P.n || P.v <= 0)//if (m > P.n || m <= 0)
                         error("Вершина задана неверно");
                     else beginAlgorithm();
                 } catch (NumberFormatException ex) {
                     ex.printStackTrace();
-                    error("Введено некорректное значение в одно из полей! Пожалуста, вводите только цифры.");
+                    error("Введено некорректное значение начальной вершины! Пожалуста, вводите только цифры.");
                 }
             }
         }
@@ -152,17 +186,17 @@ public class Controller {
         P.road.clear();
         P.V=-1;
         textGraph.clear();
-        P.input_file();
+        P.inputFile();//Функция считывания графа из файла.
         for (int i = 0; i < P.list.size(); i++) {
             textGraph.appendText("Путь из вершины " + (P.list.elementAt(i).from + 1) + " в вершину " + (P.list.elementAt(i).to + 1) + ": " + P.list.elementAt(i).l + "\n");
         }
         Stage stageWindow = new Stage();
-        try {
+        /*try {
             FXMLDocumentController(stageWindow);
             //graphWindow.arT(4);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     /**
@@ -235,14 +269,14 @@ public class Controller {
     public void getWay() {
         if (graphV.getText() == null || graphV.getText().length() == 0) {
             error("Введите количество вершин");
-            int x = Integer.parseInt(graphV.getText());
+            //int x = Integer.parseInt(graphV.getText());
         } else {
 
             try {
                 int x = Integer.parseInt(graphV.getText());
                 x--;
                 P.V = x;
-                if (x + 1 > P.n || x + 1 < 0 || x == (P.v)) {
+                if (x + 1 > P.n || x + 1 < 0 || x == (P.v)) {//?
 
                     error("Граф может быть не отображен.");
                 } else {
@@ -256,8 +290,9 @@ public class Controller {
                 }
             } catch (NumberFormatException ex) {
                 ex.printStackTrace();
-                error("Введено некорректное значение в одно из полей! Пожалуста, вводите только цифры.");
+                error("Введено некорректное значение конечной вершины! Пожалуста, вводите только цифры.");
             }
         }
     }
 }
+
