@@ -6,11 +6,12 @@ package sample;
 /**
  * Интерфейс для реализации графа.
  */
-public interface Graph_Interface {
-    void input_file();
+public interface GraphInterface {
+    void inputFile();
 
+    void inputGeneration();
 
-    void search_algorithm(Controller P);
+    void searchAlgorithm(Controller P);
 
-    void output_ways(Controller P);
+    void outputWays(Controller P);
 }
